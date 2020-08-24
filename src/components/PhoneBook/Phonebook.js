@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Form from '../Form';
-import Filter from '../FindContact'
+import Filter from '../FindContact';
 import ContactList from '../ContactList';
-import styles from './PhoneBook.module.css'
+import styles from './PhoneBook.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
 

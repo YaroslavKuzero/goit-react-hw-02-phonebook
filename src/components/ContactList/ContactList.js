@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import styles from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 const ContactList = ({ renderItems, totalItems, handler }) => (
   <Fragment>
@@ -13,5 +14,11 @@ const ContactList = ({ renderItems, totalItems, handler }) => (
     <p className={styles.total_contacts}>Total contacts: {totalItems.length}</p>
   </Fragment>
 );
+
+ContactList.propTypes = {
+  renderItems: PropTypes.array.isRequired,
+  totalItems: PropTypes.array.isRequired,
+  handler: PropTypes.func.isRequired
+}
 
 export default ContactList;
