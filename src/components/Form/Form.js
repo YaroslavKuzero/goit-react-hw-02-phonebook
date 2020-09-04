@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import s from './Form.module.css';
 import PropTypes from 'prop-types';
 
+import s from './Form.module.css';
 
 const initialState = {
   name: '',
@@ -13,42 +13,27 @@ class Form extends Component {
     onSubmit: PropTypes.func.isRequired,
   }
 
-  state = {
-    name: '',
-    number: ''
-  }
+  state = initialState;
 
-  addContactHandler = (e) => {
+  onSubmitHandler = (e) => {
     e.preventDefault()
     this.props.onSubmit(this.state)
     this.setState(initialState)
   };
 
-  changeHandler = e => {
-    const { name, value } = e.currentTarget
+  changeHandler = ({ target }) => {
+    const { name, value } = target
     this.setState({ [name]: value });
   }
 
   render() {
     return (
-      <form className={s.form} onSubmit={this.addContactHandler}>
+      <form className={s.form} onSubmit={this.onSubmitHandler}>
         <label>
-          <input
-            className={s.input_name}
-            name='name'
-            type='text'
-            placeholder='Name'
-            value={this.state.name}
-            onChange={this.changeHandler} />
+          <input className={s.input_name} name='name' type='text' placeholder='Name' value={this.state.name} onChange={this.changeHandler} />
         </label>
         <label>
-          <input
-            className={s.input_num}
-            name='number'
-            type='tel'
-            placeholder='Number'
-            value={this.state.number}
-            onChange={this.changeHandler} />
+          <input className={s.input_num} name='number' type='tel' placeholder='Number' value={this.state.number} onChange={this.changeHandler} />
         </label>
         <button className={s.btn_add} type='submit'>Add contact</button>
       </form>

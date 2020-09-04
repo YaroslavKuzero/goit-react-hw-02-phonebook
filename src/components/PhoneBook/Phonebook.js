@@ -36,8 +36,8 @@ class Phonebook extends Component {
     }))
   }
 
-  changeFilterHandler = e => {
-    this.setState({ filter: e.currentTarget.value });
+  changeFilterHandler = ({ currentTarget: { value } }) => {
+    this.setState({ filter: value });
   }
 
   getFilteredContacts = () => {
@@ -63,7 +63,7 @@ class Phonebook extends Component {
 
         <h2 className={s.section_header}>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilterHandler} />
-        <ContactList renderItems={visibleContacts} totalItems={contacts} handler={this.deleteContactHandler} />
+        <ContactList items={visibleContacts} totalItems={contacts.length} onRemove={this.deleteContactHandler} />
       </div >
     )
   }
