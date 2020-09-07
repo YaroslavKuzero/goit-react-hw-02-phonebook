@@ -20,7 +20,7 @@ const ContactList = ({ items, totalItems, onRemove }) => (
 
 ContactList.propTypes = {
   renderItems: PropTypes.array.isRequired,
-  totalItems: PropTypes.array.isRequired,
+  totalItems: PropTypes.number.isRequired,
   handler: PropTypes.func.isRequired
 }
 
